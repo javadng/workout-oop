@@ -1,3 +1,3 @@
 # workout--oop 
 
-https://exercise-oop-javad.netlify.app
+https://workout-oop-javad.netlify.app/
