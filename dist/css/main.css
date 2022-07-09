@@ -14,7 +14,7 @@ html {
 
 @font-face {
   font-family: "vazir";
-  src: url("../assets/fonts/Vazir.woff") format("woff");
+  src: url("./Vazir.woff") format("woff");
 }
 body {
   position: relative;
