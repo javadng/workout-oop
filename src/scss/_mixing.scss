@@ -1,0 +1,49 @@
+/* transition */
+@mixin transition($property: all, $duraion, $timingFonction: ease) {
+  transition: $property $duraion $timingFonction;
+  -webkit-transition: $property $duraion $timingFonction;
+  -moz-transition: $property $duraion $timingFonction;
+  -o-transition: $property $duraion $timingFonction;
+}
+
+// prettier-ignore
+@mixin boxShadow($offset-x:0, $offset-y:0, $blur-radius:0, $spread-radius:0, $color) {
+  //
+  box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+  -webkit-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+  -moz-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+  -o-box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+// prettier-ignore
+@mixin boxShadowInset($offset-x:0, $offset-y:0, $blur-radius:0, $spread-radius:0, $color) {
+  box-shadow: inset $offset-x $offset-y $blur-radius $spread-radius $color;
+  -webkit-box-shadow: inset $offset-x $offset-y $blur-radius $spread-radius
+    $color;
+  -moz-box-shadow: inset $offset-x $offset-y $blur-radius $spread-radius $color;
+  -o-box-shadow: inset $offset-x $offset-y $blur-radius $spread-radius $color;
+}
+
+@mixin translate($x: 0, $y: 0) {
+  transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+}
+@mixin translateImp($x: 0, $y: 0) {
+  transform: translate($x, $y) !important;
+  -webkit-transform: translate($x, $y) !important;
+  -moz-transform: translate($x, $y) !important;
+}
+
+@mixin font($fontFamily, $src, $format) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url($src) format($format);
+  }
+}
+
+// display setting
+@mixin displaySet($visibility, $opacity) {
+  visibility: $visibility;
+  opacity: $opacity;
+}
