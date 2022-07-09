@@ -2,11 +2,11 @@ export default class UIView {
   _toggleMenu = document.querySelector(".toggler__menu");
   _menuOverlay = document.querySelector(".menu__overlay");
   _closeMenuBtn = document.querySelector(".close__menu--btn");
+  _form = document.querySelector(".form");
 
   _modalClose = document.querySelector(".modal i.fa-close");
   _modalDetailBtn = document.querySelector(".modal_datail_close");
   _modalOverlay = document.querySelector(".modal__overlay");
-  _modalElem = document.querySelector(".modal");
 
   _menu = document.querySelector(".menu");
   _modalDetailElem = document.querySelector(".modal__info");
@@ -63,6 +63,14 @@ export default class UIView {
   _toggleMenuHandler() {
     this._menu.classList.toggle("menu__isActive");
     this._menuOverlay.classList.toggle("overlay--active");
+
+    if (
+      !this._form.classList.contains("hidden") &&
+      !this._menu.classList.contains("menu__isActive")
+    ) {
+      this._form.classList.add("hidden");
+      this._form.classList.add("hidden");
+    }
   }
 
   _modalCloseHandler() {
@@ -83,7 +91,7 @@ export default class UIView {
     if (modalElement.classList.contains("modal"))
       setTimeout(() => {
         modalElement.classList.add("hidden_modal");
-        modalOverlay.classList.remove("overlay--active");
+        this._modalOverlay.classList.remove("overlay--active");
       }, 5000);
   }
 }

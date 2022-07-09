@@ -15,6 +15,8 @@ const cadenceInput = document.querySelector(".cadence__input");
 const elevationInput = document.querySelector(".elevation__input");
 const typeInput = document.querySelector("#type_workout");
 
+const modalElem = document.querySelector(".modal");
+
 export default class App extends UIView {
   //define variables
   #map;
@@ -99,24 +101,14 @@ export default class App extends UIView {
       // prettier-ignore
       if (type === "cycling") workout = new Cycling([lat, lng], distance, duration, elevation);
     }
-    // console.log(workout.type);
 
-    // push to array
     this.#workouts.push(workout);
-
-    // render markout
-
     this._renderworkoutMarker(workout);
-
-    //render workout on the list
     this._renderWorkout(workout, flag);
-
     //hide form
     this._hideForm();
     this._toggleMenuHandler();
 
-    // set localStorage
-    // this._setLocalStorag();
     StorageView._setLocalStorag(this.#workouts);
   }
 
@@ -126,19 +118,16 @@ export default class App extends UIView {
     //remove
     if (e.target.className === "fa fa-trash") {
       const deleteItem = e.target.closest(".workout");
-      // const form = workouContainer.firstElementChild;
 
-      //prettier-ignore
-      const deleteIndex = this.#workouts.findIndex(workout => workout.id === deleteItem.dataset.id);
+      const deleteIndex = this.#workouts.findIndex(
+        (workout) => workout.id === deleteItem.dataset.id
+      );
 
       this.#workouts.splice(deleteIndex, 1);
-
       // renders remain workout
       this.append(workouContainer, this.#workouts);
-
       // update localstorage
       StorageView._setLocalStorag(this.#workouts);
-
       //delete marker
       this.#map.removeLayer(this.#mapMarkerArray[deleteIndex]);
       this.#mapMarkerArray.splice(deleteIndex, 1);
@@ -147,13 +136,10 @@ export default class App extends UIView {
     //change
     if (e.target.className === "fa fa-edit") {
       form.classList.remove("hidden");
-
       const index = e.target.closest(".workout");
-
       //prettier-ignore
       const itemEditIndex = this.#workouts.findIndex(workout => workout.id === index.dataset.id);
       // const itemEditIndex = this.#workouts.find(editWork => editWork.id === deleteItem.dataset.id);
-
       this.#mapEvent = this.#mapMarkerArray[itemEditIndex];
       this.#mapEvent.latlng = this.#mapEvent._latlng;
     }
@@ -272,7 +258,6 @@ export default class App extends UIView {
     form.classList.remove("hidden");
     durationInput.focus();
     this._toggleMenuHandler();
-    // this._toggleMenuHandler;
   }
 
   _hideForm() {
