@@ -250,6 +250,7 @@ export default class App extends UIView {
 
   _getLocalStorage() {
     this.#workouts = StorageView._getLocalStorage();
+    
     this.#workouts.forEach((work) => this._renderWorkout(work));
   }
 

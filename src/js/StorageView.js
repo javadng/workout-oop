@@ -9,7 +9,7 @@ class StorageView {
   _getLocalStorage() {
     const allData = JSON.parse(localStorage.getItem("workouts"));
 
-    if (!allData) return;
+    if (!allData) return [];
 
     allData.forEach((data) => {
       if (data.type === "running") Object.setPrototypeOf(data, Running);
