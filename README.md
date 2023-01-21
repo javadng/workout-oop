@@ -2,6 +2,6 @@
 - Leaflet 
 - pure javascript
 - oop 
--link:
+- link:
 
 https://workout-oop-javad.netlify.app/
